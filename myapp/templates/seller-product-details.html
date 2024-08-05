@@ -1,0 +1,50 @@
+{% extends 'seller-header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+</head>
+<body class="animsition">
+	<!-- Product -->
+	<section class="bg0 p-t-23 p-b-140">
+		<div class="container">
+			<div class="p-b-10">
+				<h3 class="ltext-103 cl5">
+					Product Details
+				</h3>
+			</div>
+			<div class="row isotope-grid">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="{{product.product_image.url}}" alt="IMG-PRODUCT">
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Name : {{product.product_name}}
+								</a>
+
+								<span class="stext-105 cl3">
+									Price : {{product.product_price}}
+								</span>
+								<span class="stext-105 cl3">
+									Details : {{product.product_desc}}
+								</span>
+							</div>
+						</div>
+						<br>
+						<a href="{% url 'seller-product-edit' pk=product.pk %}"><input type="button" value="EDIT" class="btn btn-primary"></a>
+						<a href="{% url 'seller-product-delete' pk=product.pk %}"><input type="button" value="DELETE" class="btn btn-danger"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+{% endblock %}
